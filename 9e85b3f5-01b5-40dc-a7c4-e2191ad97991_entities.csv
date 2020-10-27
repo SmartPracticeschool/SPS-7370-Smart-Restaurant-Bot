@@ -1,0 +1,25 @@
+email,email,"/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/"
+enquiry,specials,item,items
+enquiry,offers
+enquiry,menu
+enquiry,item,items
+enquiry,deal,deals
+items,Zingy Parcel
+items,Non veg Sandwich
+items,Paneer Masala
+items,Pizza
+items,Veg Pasta
+items,Veg Sandwich
+items,burger
+order_place,order,orders,attempt,allowing,enabling,attempting,wishing,allows,permitting,ordered
+payment,UPI
+payment,Card
+payment,COD
+specials,Pasta,pastas,mozzarella
+specials,Veg Sandwich
+specials,veg pasta
+specials,non veg sandwich
+specials,Zingy Parcel
+specials,Burger
+specials,Pizza
+specials,Paneer Masala

@@ -1,0 +1,15 @@
+{
+  "output": {
+    "generic": [
+      {
+        "values": [
+          {
+            "text": "Thank You ,Your order of  $number of $items is placed ,please  pay  using $payment . Your receipt is sent to your $email ."
+          }
+        ],
+        "response_type": "text",
+        "selection_policy": "sequential"
+      }
+    ]
+  }
+}
