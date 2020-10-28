@@ -1,10 +1,15 @@
 # SPS-7370-Smart-Restaurant-Bot
 Smart Restaurant Bot
+
+
+Preview Link
+
 https://web-chat.global.assistant.watson.cloud.ibm.com/preview.html?region=eu-gb&integrationID=f875a936-91c6-420d-8111-35c986581f0d&serviceInstanceID=2b7174ab-f20b-4f7b-ad9a-a03810ba74b0
 
+Nodered Link
 
-https://node-red-zfgje.eu-gb.mybluemix.net/red/#flow/3a419665.ddfc3a
-https://node-red-zfgje.eu-gb.mybluemix.net/ui
+1.  https://node-red-zfgje.eu-gb.mybluemix.net/red/#flow/3a419665.ddfc3a
+2.  https://node-red-zfgje.eu-gb.mybluemix.net/ui
 
 Name- Mrs.Disha Sushant Wankhede
 Institution Mail Id- disha.wankhede@viit.ac.in
