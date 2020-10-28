@@ -6,13 +6,8 @@ https://web-chat.global.assistant.watson.cloud.ibm.com/preview.html?region=eu-gb
 https://node-red-zfgje.eu-gb.mybluemix.net/red/#flow/3a419665.ddfc3a
 https://node-red-zfgje.eu-gb.mybluemix.net/ui
 
-
-
 Name- Mrs.Disha Sushant Wankhede
 Institution Mail Id- disha.wankhede@viit.ac.in
-
-
-
 
 1 INTRODUCTION
 
@@ -38,8 +33,6 @@ The purpose of a Chatbot is to give immediate responses to the users  Frequently
 
 2 LITERATURE SURVEY
 
-
-
   2.1  Existing problem
 
 
@@ -58,36 +51,20 @@ We can Promote best deals and offers on that day
 We will store the customer’s details and orders in the database
 Chat will send a notification to customers if the order is confirmed
 The chatbot is also useful in Follow up on customer feedback
-
 3 THEORITICAL ANALYSIS
-
-
   3.1  Block diagram
-
- 
-
 Figure 1. Block Diagram
-
-
   3.2  Hardware / Software designing
-
 Figure 2. Flow diagram of Node Red Application
 
 
 4 EXPERIMENTAL INVESTIGATIONS
-
-
-
 5  FLOWCHART
- Figure 3. Flowchart
-
+Figure 3. Flowchart
 6 RESULT
 
 Screenshot:- Nodered UI
-
 Screenshot:- Chatbot Preview Link Output
-
-  
 7 ADVANTAGES & DISADVANTAGES
 
 Advantages: 
@@ -106,7 +83,6 @@ Disadvantages:
 
 Smart Restaurant Bot 
 
-
 9 CONCLUSION
 
 As a conclusion, this software of project is successfully functioned as the objectives of the project. This project helps to solve the problem faced by the restaurant entrepreneur in the attempt to organize the restaurant more efficiently skilled. It can also be used to reduce the lateness and the error caused on ordering foods by the customers by waiters. By using this system, the complaints about the services are eliminated
@@ -119,25 +95,783 @@ Further enhancements can also be there through which this restaurant bot becomes
 11 BIBILOGRAPHY
 
 APPENDIX
+
   A. Source code
 
-Chat Bot JSON File
+Skill-Disha_Bot   JSON File
 
 {
-  "output": {
-    "generic": [
-      {
-        "values": [
+  "intents": [
+    {
+      "intent": "enquiry",
+      "examples": [
+        {
+          "text": "Can you please provide menu list?"
+        },
+        {
+          "text": "I want to book into the menu"
+        },
+        {
+          "text": "What are the Offers available?"
+        },
+        {
+          "text": "What are the special item today?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "order_place",
+      "examples": [
+        {
+          "text": "Can u please take the order"
+        },
+        {
+          "text": "Can you please take my order"
+        },
+        {
+          "text": "I want to place order"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "email",
+      "values": [
+        {
+          "type": "patterns",
+          "value": "email",
+          "patterns": [
+            "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "enquiry",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "deal",
+          "synonyms": [
+            "deals"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "item",
+          "synonyms": [
+            "items"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "menu",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "offers",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "specials",
+          "synonyms": [
+            "item",
+            "items"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "items",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "burger",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Non veg Sandwich",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Paneer Masala",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Pizza",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Veg Pasta",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Veg Sandwich",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Zingy Parcel",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "order_place",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "order",
+          "synonyms": [
+            "allowing",
+            "allows",
+            "attempt",
+            "attempting",
+            "enabling",
+            "ordered",
+            "orders",
+            "permitting",
+            "wishing"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "payment",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Card",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "COD",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "UPI",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "specials",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Burger",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "non veg sandwich",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Paneer Masala",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Pasta",
+          "synonyms": [
+            "mozzarella",
+            "pastas"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Pizza",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "veg pasta",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Veg Sandwich",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Zingy Parcel",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-number",
+      "values": [],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
           {
-            "text": "Thank You ,Your order of  $number of $items is placed ,please  pay  using $payment . Your receipt is sent to your $email ."
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
           }
-        ],
-        "response_type": "text",
-        "selection_policy": "sequential"
-      }
-    ]
-  }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_7_1603467781495",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "event_handler",
+      "parent": "node_7_1603467781495",
+      "event_name": "focus",
+      "dialog_node": "handler_1_1603468020792",
+      "previous_sibling": "node_10_1603470359417"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Can you please provide me the item name that you want "
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_4_1603468022275",
+      "event_name": "focus",
+      "dialog_node": "handler_3_1603468022288",
+      "previous_sibling": "handler_8_1603468022288"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "How many do you want ?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_3_1603468740585",
+      "event_name": "focus",
+      "dialog_node": "handler_6_1603468740586",
+      "previous_sibling": "handler_7_1603468740586"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_3_1603468740585",
+      "context": {
+        "number": "@sys-number"
+      },
+      "conditions": "@sys-number",
+      "event_name": "input",
+      "dialog_node": "handler_7_1603468740586"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_10_1603468774641",
+      "context": {
+        "payment": "@payment"
+      },
+      "conditions": "@payment",
+      "event_name": "input",
+      "dialog_node": "handler_7_1603468774642"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_4_1603468022275",
+      "context": {
+        "items": "@items"
+      },
+      "conditions": "@items",
+      "event_name": "input",
+      "dialog_node": "handler_8_1603468022288"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "We can accept COD,UPI and Card what is your mode of payment?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_10_1603468774641",
+      "event_name": "focus",
+      "dialog_node": "handler_9_1603468774642",
+      "previous_sibling": "handler_7_1603468774642"
+    },
+    {
+      "type": "standard",
+      "title": "Delete Context",
+      "output": {
+        "deleted": "<?context.remove('items')?><?context.remove('number')?><?context.remove('payment')?><?context.remove('email')?",
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1603467781495",
+      "conditions": "true",
+      "dialog_node": "node_10_1603470359417"
+    },
+    {
+      "type": "standard",
+      "title": "email",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello , Thank You for giving your mail id  $email is it for further references. "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "Welcome",
+      "context": {
+        "email": "@email.literal"
+      },
+      "conditions": "@email",
+      "dialog_node": "node_10_1603472772990"
+    },
+    {
+      "type": "standard",
+      "title": "enquiry",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "#enquiry || @enquiry",
+      "digress_in": "returns",
+      "dialog_node": "node_2_1603463340455",
+      "digress_out": "allow_all_never_return",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "frame",
+      "title": "order_palce",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Thank You ,Your order of  $number of $items is placed ,please  pay  using $payment . Your receipt is sent to your $email ."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "#order_place && @order_place",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_7_1603467781495",
+      "digress_out": "allow_all",
+      "previous_sibling": "node_2_1603463340455",
+      "digress_out_slots": "allow_returning"
+    },
+    {
+      "type": "standard",
+      "title": "specials",
+      "parent": "node_2_1603463340455",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "@specials",
+      "dialog_node": "node_9_1603466848292"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Is cost is 150 per plate"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1603466848292",
+      "conditions": "@specials:(Burger)",
+      "dialog_node": "response_10_1603467151631",
+      "previous_sibling": "response_5_1603467123870"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Is cost is 200 per plate"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1603466848292",
+      "conditions": "@specials:(Paneer Masala)",
+      "dialog_node": "response_1_1603467042239",
+      "previous_sibling": "response_6_1603466955069"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Is cost is 150 per plate"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1603466848292",
+      "conditions": "@specials:(Veg Sandwich)",
+      "dialog_node": "response_4_1603467062378",
+      "previous_sibling": "response_1_1603467042239"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Is cost is 50 per plate"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1603466848292",
+      "conditions": "@specials:(Zingy Parcel)",
+      "dialog_node": "response_5_1603467123870",
+      "previous_sibling": "response_7_1603467084899"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Is cost is 100 per plate"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1603466848292",
+      "conditions": "@specials:(veg pasta)",
+      "dialog_node": "response_6_1603466955069"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "title": "Special Items",
+            "options": [
+              {
+                "label": "Pizza",
+                "value": {
+                  "input": {
+                    "text": "Pizza"
+                  }
+                }
+              },
+              {
+                "label": "Paneer Masala",
+                "value": {
+                  "input": {
+                    "text": "Paneer Masala"
+                  }
+                }
+              },
+              {
+                "label": "Veg Pasta",
+                "value": {
+                  "input": {
+                    "text": "Veg Pasta"
+                  }
+                }
+              },
+              {
+                "label": "Veg Sandwich ",
+                "value": {
+                  "input": {
+                    "text": "Veg Sandwich "
+                  }
+                }
+              },
+              {
+                "label": "Burger",
+                "value": {
+                  "input": {
+                    "text": "Burger"
+                  }
+                }
+              },
+              {
+                "label": "Zingy Parcel",
+                "value": {
+                  "input": {
+                    "text": "Zingy Parcel"
+                  }
+                }
+              },
+              {
+                "label": "Non veg Sandwich",
+                "value": {
+                  "input": {
+                    "text": "Non veg Sandwich"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_2_1603463340455",
+      "conditions": "@enquiry:specials",
+      "dialog_node": "response_7_1603464897321",
+      "previous_sibling": "response_8_1603464584961"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Is cost is 300 per plate"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1603466848292",
+      "conditions": "@specials:(non veg sandwich)",
+      "dialog_node": "response_7_1603467084899",
+      "previous_sibling": "response_4_1603467062378"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Is cost is 350 per plate"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1603466848292",
+      "conditions": "@specials:(Pizza)",
+      "dialog_node": "response_7_1603467194995",
+      "previous_sibling": "response_10_1603467151631"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "We are having 20% off on vegetarian "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "We have 10% off on all  non veg menu for women day special discount."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "We are having 10% discount on fast food."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1603463340455",
+      "conditions": "@enquiry:offers",
+      "dialog_node": "response_8_1603464584961",
+      "previous_sibling": "response_9_1603463590525"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "title": "Menu",
+            "source": "https://im1.dineout.co.in/images/uploads/restaurant/sharpen/4/j/o/m41327-15239489375ad59d896b40e.jpg",
+            "response_type": "image"
+          }
+        ]
+      },
+      "parent": "node_2_1603463340455",
+      "conditions": "@enquiry:menu",
+      "dialog_node": "response_9_1603463590525",
+      "previous_sibling": "node_9_1603466848292"
+    },
+    {
+      "type": "slot",
+      "parent": "node_7_1603467781495",
+      "variable": "$payment",
+      "dialog_node": "slot_10_1603468774641",
+      "previous_sibling": "slot_3_1603468740585"
+    },
+    {
+      "type": "slot",
+      "parent": "node_7_1603467781495",
+      "variable": "$number",
+      "dialog_node": "slot_3_1603468740585",
+      "previous_sibling": "slot_4_1603468022275"
+    },
+    {
+      "type": "slot",
+      "parent": "node_7_1603467781495",
+      "variable": "$items",
+      "dialog_node": "slot_4_1603468022275",
+      "previous_sibling": "handler_1_1603468020792"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello. I am Restaurant Bot ,  How can I help you? Can you please provide your name and  mail id"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "Disha_Bot",
+  "language": "en",
+  "description": ""
 }
+
+
 
 NodeRed Json File_ Original
 
